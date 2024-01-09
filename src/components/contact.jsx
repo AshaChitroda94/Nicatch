@@ -14,20 +14,38 @@ export const Contact = (props) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
-  const clearState = () => setState({ ...initialState });
+  console.log("name: " + name);
+  console.log("email: " + email);
+  console.log("message: " + message);
+  // const clearState = () => setState({ ...initialState });
+
+  const clearState = () => {
+    setState({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
 
   const handleSubmit = (e) => {
+    alert("Your message has been submitted successfully");
     e.preventDefault();
     console.log(name, email, message);
 
     /* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */
 
     emailjs
+      // .sendForm(
+      //   "YOUR_SERVICE_ID",
+      //   "YOUR_TEMPLATE_ID",
+      //   e.target,
+      //   "YOUR_PUBLIC_KEY"
+      // )
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_0zbn8nv",
+        "template_dmsvz9p",
         e.target,
-        "YOUR_PUBLIC_KEY"
+        "hLoQWIQPxi39aZwxb"
       )
       .then(
         (result) => {

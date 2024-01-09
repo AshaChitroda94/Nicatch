@@ -6,41 +6,41 @@
   "About": {
     "paragraph": "We Nicatch Pvt. Ltd. giving best IT Solutions to our clients requirements. We are giving best services and quality solutions to maintain good relationship with our clients. We are thinking about your product and suggest ideas and technologies which is currently trending. We are providing solutions for Mobile Technology and Web Technology.",
     "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
+      "Expert Developer Team",
+      "Efficient Development",
+      "Team building activities",
+      "Arrange meetings as client needs"
     ],
     "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
+      "Direct involvement of CEO",
+      "Client Satisfaction",
+      "more than 10 years of experience",
+      "aid post-project completion"
     ]
   },
   "Gallery": [
     {
-      "title": "Project Title",
+      "title": "SliceToBuy",
       "largeImage": "img/portfolio/01-large.jpg",
       "smallImage": "img/portfolio/01-small.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "UCoachU",
       "largeImage": "img/portfolio/02-large.jpg",
       "smallImage": "img/portfolio/02-small.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "Equalution",
       "largeImage": "img/portfolio/03-large.jpg",
       "smallImage": "img/portfolio/03-small.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "AlmondFintech",
       "largeImage": "img/portfolio/04-large.jpg",
       "smallImage": "img/portfolio/04-small.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "SpeedHome",
       "largeImage": "img/portfolio/05-large.jpg",
       "smallImage": "img/portfolio/05-small.jpg"
     },
@@ -137,7 +137,7 @@
     }
   ],
   "Contact": {
-    "address": "J-102, Aaruni Residency, Bhaili, Vadodara ",
+    "address": "J-102, Canal Road, Bhaili, Vadodara-391410 ",
     "phone": "+91 8128110466",
     "email": "info@nicatch.com",
     "facebook": "fb.com",
