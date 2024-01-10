@@ -9,11 +9,11 @@
       "Expert Developer Team",
       "Efficient Development",
       "Team building activities",
-      "Arrange meetings as client needs"
+      "24/7 technical assistance"
     ],
     "Why2": [
       "Direct involvement of CEO",
-      "Client Satisfaction",
+      "Customer centric approach",
       "more than 10 years of experience",
       "aid post-project completion"
     ]
@@ -22,47 +22,20 @@
     {
       "title": "SliceToBuy",
       "largeImage": "img/portfolio/01-large.jpg",
-      "smallImage": "img/portfolio/01-small.jpg"
+      "smallImage": "img/portfolio/01-small.jpg",
+      "link": "https://www.slicetobuy.com/"
     },
     {
-      "title": "UCoachU",
+      "title": "uCoachu",
       "largeImage": "img/portfolio/02-large.jpg",
-      "smallImage": "img/portfolio/02-small.jpg"
-    },
-    {
-      "title": "Equalution",
-      "largeImage": "img/portfolio/03-large.jpg",
-      "smallImage": "img/portfolio/03-small.jpg"
-    },
-    {
-      "title": "AlmondFintech",
-      "largeImage": "img/portfolio/04-large.jpg",
-      "smallImage": "img/portfolio/04-small.jpg"
+      "smallImage": "img/portfolio/02-small.jpg",
+      "link": "https://www.ucoachugolf.com/"
     },
     {
       "title": "SpeedHome",
-      "largeImage": "img/portfolio/05-large.jpg",
-      "smallImage": "img/portfolio/05-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/portfolio/06-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/07-large.jpg",
-      "smallImage": "img/portfolio/07-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/08-large.jpg",
-      "smallImage": "img/portfolio/08-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/09-large.jpg",
-      "smallImage": "img/portfolio/09-small.jpg"
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-small.jpg",
+      "link": "http://speedhome.com"
     }
   ],
   "Services": [
@@ -117,8 +90,8 @@
   "Team": [
     {
       "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
+      "name": "Nikhil Parmar",
+      "job": "Director & CEO"
     },
     {
       "img": "img/team/02.jpg",
@@ -158,12 +131,12 @@
     {
       "icon": "fa fa-group",
       "title": "Support Services ",
-      "text": "We are providing Support Solutions and Services for your business ease."
+      "text": "We are providing Solutions and Services even after project completion for your business ease."
     },
     {
       "icon": "fa fa-magic",
-      "title": "Dedicated Team Service",
-      "text": "We have our Inhouse development team to create your product & thoughts for your business ease."
+      "title": "Dedicated Team",
+      "text": "We have our Inhouse development team to develop product for your business ease."
     }
   ]
 }
