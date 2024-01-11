@@ -6,9 +6,10 @@ const initialState = {
   name: "",
   email: "",
   message: "",
+  mobile: "",
 };
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
+  const [{ name, email, message, mobile }, setState] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,13 +25,14 @@ export const Contact = (props) => {
       name: "",
       email: "",
       message: "",
+      mobile: "",
     });
   };
 
   const handleSubmit = (e) => {
     alert("Your message has been submitted successfully");
     e.preventDefault();
-    console.log(name, email, message);
+    console.log(name, email, message, mobile);
 
     /* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */
 
@@ -76,10 +78,10 @@ export const Contact = (props) => {
                     <div className="form-group">
                       <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="mobile"
+                        name="mobile"
                         className="form-control"
-                        placeholder="Name"
+                        placeholder="Mobile Number"
                         required
                         onChange={handleChange}
                       />
@@ -101,49 +103,23 @@ export const Contact = (props) => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="col-md-6">
+                <div
+                  className="col-md"
+                  // style={{ width: "760px", marginLeft: "15px" }}
+                >
                   <div className="form-group">
                     <input
                       type="text"
                       id="name"
                       name="name"
                       className="form-control"
-                      placeholder="Name"
+                      placeholder="Name/Company Name"
                       required
                       onChange={handleChange}
                     />
                     <p className="help-block text-danger"></p>
                   </div>
                 </div>
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="form-control"
-                      placeholder="Email"
-                      required
-                      onChange={handleChange}
-                    />
-                    <p className="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      id="mobile"
-                      name="mobile"
-                      className="form-control"
-                      placeholder="Mobile"
-                      required
-                      onChange={handleChange}
-                    />
-                    <p className="help-block text-danger"></p>
-                  </div>
-                </div> */}
 
                 <div className="form-group">
                   <textarea

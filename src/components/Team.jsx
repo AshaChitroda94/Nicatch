@@ -3,7 +3,6 @@ import Image from "../assets/team/01.jpg";
 import { Modal } from "@mui/base";
 import { Box, IconButton, Typography } from "@mui/material";
 // import CloseIcon from "@mui/icons-material/Close";
-import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
 
 export const Team = (props) => {
