@@ -1,5 +1,6 @@
 import { Image } from "./image";
 import React from "react";
+import speedhome from "../assets/Gallary/speedhome-app.jpg";
 
 export const Gallery = (props) => {
   console.log("props", props);
@@ -8,6 +9,7 @@ export const Gallery = (props) => {
       <div className="container">
         <div className="section-title">
           <h2>Gallery</h2>
+          {/* <img src={speedhome} alt="s" /> */}
           <p>
             Here are some glimpse of projects we have completed. You can visit
             each website with just click on it.
