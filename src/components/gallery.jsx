@@ -2,14 +2,15 @@ import { Image } from "./image";
 import React from "react";
 
 export const Gallery = (props) => {
+  console.log("props", props);
   return (
     <div id="portfolio" className="text-center">
       <div className="container">
         <div className="section-title">
           <h2>Gallery</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            Here are some glimpse of projects we have completed. You can visit
+            each website with just click on it.
           </p>
         </div>
         <div className="row">
@@ -19,12 +20,15 @@ export const Gallery = (props) => {
                   <div
                     key={`${d.title}-${i}`}
                     className="col-sm-6 col-md-4 col-lg-4"
+                    onClick={d.link}
                   >
-                    <Image
-                      title={d.title}
-                      largeImage={d.largeImage}
-                      smallImage={d.smallImage}
-                    />
+                    <a href={d.link} target="_blank" rel="noreferrer">
+                      <Image
+                        title={d.title}
+                        // largeImage={d.largeImage}
+                        smallImage={d.smallImage}
+                      />
+                    </a>
                   </div>
                 ))
               : "Loading..."}

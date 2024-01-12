@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/logo/final.png";
 
 export const Navigation = (props) => {
   return (
@@ -17,8 +18,16 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            NICATCH
+          <a
+            className="navbar-brand page-scroll"
+            href="#page-top"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img src={logo} className="" alt="" style={{ height: "inherit" }} />
           </a>{" "}
         </div>
 

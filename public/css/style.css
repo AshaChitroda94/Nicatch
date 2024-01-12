@@ -84,7 +84,8 @@ hr {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  /* color: #333; */
+  color: #01073b;
   text-transform: uppercase;
 }
 #menu.navbar-default .navbar-nav > li > a {
@@ -166,8 +167,9 @@ hr {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   color: #fff;
-  background-color: #5ca9fb;
-  background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  background-color: #01073b;
+  /* background-image: linear-gradient(to right, #01073b 0%, #6372ff 100%); */
+  /* background-image: linear-gradient(to right, #01073b 0%, #6372ff 100%); */
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -220,7 +222,8 @@ a:focus,
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
-  color: #fff;
+  /* color: #fff; */
+  color: #01073b;
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;
@@ -232,7 +235,8 @@ a:focus,
   color: #5ca9fb;
 }
 .intro p {
-  color: #fff;
+  /* color: #fff; */
+  color: #fcf5f5;
   font-size: 22px;
   font-weight: 300;
   line-height: 30px;
@@ -257,7 +261,8 @@ header .intro-text {
   height: 100px;
   padding: 30px 0;
   border-radius: 50%;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  /* background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%); */
+  background: linear-gradient(to right, #01073b 0%, #5ca9fb 100%);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 /* About Section */
@@ -310,7 +315,9 @@ header .intro-text {
 /* Services Section */
 #services {
   padding: 100px 0;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  /* background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%); */
+  /* background: linear-gradient(to right, #01073b 0%, #5ca9fb 100%); */
+  background-color: #01073b;
   color: #fff;
 }
 #services .service-desc {
@@ -334,7 +341,9 @@ header .intro-text {
   width: 120px;
   height: 120px;
   padding: 40px 0;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  /* background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%); */
+  background: linear-gradient(to right, #01073b 0%, #5ca9fb 100%);
+  background-color: #01073b;
   border-radius: 50%;
   color: #fff;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
@@ -460,7 +469,9 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  /* background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%); */
+  /* background: linear-gradient(to right, #01073b 0%, #5ca9fb 100%); */
+  background-color: #01073b;
   color: rgba(255, 255, 255, 0.75);
 }
 #contact .section-title {
@@ -586,11 +597,12 @@ label {
 /* Footer Section*/
 #footer {
   background: #f6f6f6;
-  padding: 30px 0;
+  padding: 5px 0;
 }
 #footer p {
   color: #888;
   font-size: 14px;
+  margin-top: 10px;
 }
 #footer a {
   color: #608dfd;
