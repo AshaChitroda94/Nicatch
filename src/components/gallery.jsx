@@ -1,6 +1,5 @@
 import { Image } from "./image";
 import React from "react";
-import speedhome from "../assets/Gallary/speedhome-app.jpg";
 
 export const Gallery = (props) => {
   console.log("props", props);

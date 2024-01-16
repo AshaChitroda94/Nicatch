@@ -50,7 +50,7 @@ export const Testimonials = (props) => {
                       <div
                         className="testimonial-image"
                         style={{ position: "relative", cursor: "pointer" }}
-                        onClick={handleOpen}
+                        onClick={d.video ? handleOpen : handleClose}
                       >
                         {" "}
                         <img src={d.img} alt="" />{" "}
@@ -79,7 +79,7 @@ export const Testimonials = (props) => {
                         <p>"{d.text}"</p>
                         <div className="testimonial-meta"> - {d.name} </div>
                       </div>
-                      {open && (
+                      {open && d.video ? (
                         <Modal
                           open={open}
                           onClose={handleClose}
@@ -121,6 +121,8 @@ export const Testimonials = (props) => {
                             </Box>
                           </Box>
                         </Modal>
+                      ) : (
+                        <></>
                       )}
                     </div>
                   </div>

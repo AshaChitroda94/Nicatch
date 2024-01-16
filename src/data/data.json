@@ -47,19 +47,19 @@
       "title": "Manaaki",
       "largeImage": "img/portfolio/04-large.jpg",
       "smallImage": "img/Gallary/manaakiapp.jpg",
-      "link": "http://speedhome.com"
+      "link": "#"
     },
     {
       "title": "DRB",
       "largeImage": "img/portfolio/05-large.jpg",
       "smallImage": "img/Gallary/DRB-app.jpg",
-      "link": "http://speedhome.com"
+      "link": "#"
     },
     {
       "title": "Agordia",
       "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/Gallary/Agordia2-web.jpeg",
-      "link": "http://speedhome.com"
+      "smallImage": "img/Gallary/Agordia3.jpg",
+      "link": "#"
     }
   ],
   "Services": [
