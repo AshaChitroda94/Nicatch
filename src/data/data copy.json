@@ -1,0 +1,166 @@
+{
+  "Header": {
+    "title": "We Shape your Idea into Reality",
+    "paragraph": "Enabling your idea into a product with expert engineering services"
+  },
+  "About": {
+    "paragraph": "We Nicatch Pvt. Ltd. giving best IT Solutions to our clients requirements. We are giving best services and quality solutions to maintain good relationship with our clients. We are thinking about your product and suggest ideas and technologies which is currently trending. We are providing solutions for Mobile Technology and Web Technology.",
+    "Why": [
+      "Expert Developer Team",
+      "Efficient Development",
+      "Team building activities",
+      "24/7 technical assistance"
+    ],
+    "Why2": [
+      "Direct involvement of CEO",
+      "Customer centric approach",
+      "more than 10 years of experience",
+      "aid post-project completion"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "SliceToBuy",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/Gallary/slice2-web.png",
+      "link": "https://www.slicetobuy.com/"
+    },
+    {
+      "title": "uCoachu",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/Gallary/uCoachu2.png",
+      "link": "https://www.ucoachugolf.com/"
+    },
+    {
+      "_comments": {
+        "title": "SpeedHome",
+        "largeImage": "img/portfolio/03-large.jpg",
+        "smallImage": "../assets/Gallary/speedhome-app.jpg",
+        "link": "http://speedhome.com"
+      },
+      "title": "SpeedHome",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/Gallary/speedhome-app.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "Manaaki",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/Gallary/manaakiapp.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "DRB",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/Gallary/DRB-app.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "Agordia",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/Gallary/Agordia2-web.jpeg",
+      "link": "http://speedhome.com"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-wordpress",
+      "name": "Web Development",
+      "text": "Interactive, feature-filled, and highly compatible web applications are developed based on your requirements by our team of techies."
+    },
+    {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "Mobile App",
+      "text": "Your business can be left behind without a mobile app. With a team of mobile application development, craft a perfect mobile app."
+    },
+    {
+      "icon": "fa fa-language",
+      "name": "QA & Testing",
+      "text": "Smoothen the processes and management of your enterprise with NICATCH's enterprise software development & QA team at your service."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/slice.jpg",
+      "text": "\"I just wanted to jump on and say a massive thank you to Nikhil and his team at Nicatch Private and particular Krupa. They've been nothing short of amazing when helping with the development of our slice platform, ensuring that they understand what business value looks like for us and delivering in a timely and cost effective manner. Absolutely, highly recommend them if you're looking for development services for your business. Thanks to Nicatch Private.\"",
+      "name": "Amy stevens"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "Nikhil Parmar",
+      "job": "Director & CEO"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "J-102, Canal Road, Bhaili, Vadodara-391410 ",
+    "phone": "+91 8128110466",
+    "email": "info@nicatch.com",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "linkedin": "linkedin.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Custom Solutions",
+      "text": "We are providing custom solutions for your business ease."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "IT Consulting",
+      "text": "We are providing IT Consulting to suggest solutions for your business ease."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Support Services ",
+      "text": "We are providing Solutions and Services even after project completion for your business ease."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Dedicated Team",
+      "text": "We have our Inhouse development team to develop product for your business ease."
+    }
+  ]
+}

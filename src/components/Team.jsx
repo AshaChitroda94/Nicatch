@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import Image from "../assets/team/01.jpg";
+import Image from "../assets/team/CEO.jpg";
 import { Modal } from "@mui/base";
 import { Box, IconButton, Typography } from "@mui/material";
 // import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
 
 export const Team = (props) => {
-  console.log("Team", props);
   const [open, setOpen] = useState(false);
 
   const style = {
-    position: "absolute",
+    position: "fixed",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",

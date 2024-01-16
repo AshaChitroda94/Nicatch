@@ -236,7 +236,8 @@ a:focus,
 }
 .intro p {
   /* color: #fff; */
-  color: #fcf5f5;
+  /* color: #fcf5f5; */
+  color: #01073b;
   font-size: 22px;
   font-weight: 300;
   line-height: 30px;
@@ -370,7 +371,7 @@ header .intro-text {
 .portfolio-item .hover-bg {
   overflow: hidden;
   position: relative;
-  margin: 0;
+  margin: 2;
 }
 .hover-bg .hover-text {
   position: absolute;
@@ -420,7 +421,7 @@ header .intro-text {
 }
 .testimonial {
   position: relative;
-  padding: 20px;
+  /* padding: 20px;  */
 }
 .testimonial-image {
   float: left;
@@ -429,9 +430,13 @@ header .intro-text {
 .testimonial-image,
 .testimonial-image img {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 150px;
+  height: 140px;
   border-radius: 50%;
+}
+.testimonial-image:hover .play-button {
+  opacity: 1;
+  color: #6372ff;
 }
 .testimonial-content {
   position: relative;

@@ -1,5 +1,6 @@
 import { Image } from "./image";
 import React from "react";
+import speedhome from "../assets/Gallary/speedhome-app.jpg";
 
 export const Gallery = (props) => {
   console.log("props", props);
@@ -7,10 +8,11 @@ export const Gallery = (props) => {
     <div id="portfolio" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Gallery</h2>
+          <h2>PORTFOLIO</h2>
+          {/* <img src={speedhome} alt="s" /> */}
           <p>
             Here are some glimpse of projects we have completed. You can visit
-            each website with just click on it.
+            each website by just click of your index finger.
           </p>
         </div>
         <div className="row">

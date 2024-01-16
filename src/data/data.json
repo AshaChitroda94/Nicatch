@@ -22,19 +22,43 @@
     {
       "title": "SliceToBuy",
       "largeImage": "img/portfolio/01-large.jpg",
-      "smallImage": "img/portfolio/01-small.jpg",
+      "smallImage": "img/Gallary/slice2-web.png",
       "link": "https://www.slicetobuy.com/"
     },
     {
       "title": "uCoachu",
       "largeImage": "img/portfolio/02-large.jpg",
-      "smallImage": "img/portfolio/02-small.jpg",
+      "smallImage": "img/Gallary/uCoachu2.png",
       "link": "https://www.ucoachugolf.com/"
     },
     {
+      "_comments": {
+        "title": "SpeedHome",
+        "largeImage": "img/portfolio/03-large.jpg",
+        "smallImage": "../assets/Gallary/speedhome-app.jpg",
+        "link": "http://speedhome.com"
+      },
       "title": "SpeedHome",
       "largeImage": "img/portfolio/03-large.jpg",
-      "smallImage": "img/portfolio/03-small.jpg",
+      "smallImage": "img/Gallary/speedhome-app.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "Manaaki",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/Gallary/manaakiapp.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "DRB",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/Gallary/DRB-app.jpg",
+      "link": "http://speedhome.com"
+    },
+    {
+      "title": "Agordia",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/Gallary/Agordia2-web.jpeg",
       "link": "http://speedhome.com"
     }
   ],
@@ -57,34 +81,15 @@
   ],
   "Testimonials": [
     {
-      "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "img": "img/testimonials/slice.jpg",
+      "video": "img/testimonials/slice-video.jpg",
+      "text": "\"I just wanted to jump on and say a massive thank you to Nikhil and his team at Nicatch Private and particular Krupa. They've been nothing short of amazing when helping with the development of our slice platform, ensuring that they understand what business value looks like for us and delivering in a timely and cost effective manner. Absolutely, highly recommend them if you're looking for development services for your business. Thanks to Nicatch Private.\"",
+      "name": "Amy stevens"
     },
     {
       "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"Nikhil is someone great to work with. He’s also volunteered a part-time Scrum Master in the team. He’s good in communication & rallying the team to resolve some technical/process pain points and escalate them appropriately.\"",
+      "name": "SpeedHome CEO"
     }
   ],
   "Team": [
