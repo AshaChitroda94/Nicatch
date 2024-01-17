@@ -31,10 +31,10 @@ export const Team = (props) => {
     <div id="team" className="text-center">
       <div className="container">
         <div className="col-md-8 col-md-offset-2 section-title">
-          <h2>Meet the Team</h2>
+          <h2>Founder Words</h2>
           <p>
-            Top Management of Nicatch Private Limited. Here are what our Board
-            members say
+            Our visionary founder has a vision that every business must become
+            digital. Here are what our founder says...
           </p>
         </div>
         <div id="row">
