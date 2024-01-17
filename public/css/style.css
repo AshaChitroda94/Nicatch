@@ -422,6 +422,7 @@ header .intro-text {
 #testimonials {
   padding: 100px 0;
   background: #f6f6f6;
+  width: 100%;
 }
 #testimonials i {
   color: #e6e6e6;
@@ -455,6 +456,10 @@ header .intro-text {
   margin-bottom: 0;
   font-size: 14px;
   font-style: italic;
+}
+.read-or-hide {
+  color: rgb(192, 192, 192);
+  cursor: pointer;
 }
 .testimonial-meta {
   margin-top: 10px;
