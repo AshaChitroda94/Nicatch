@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const initialState = {
   name: "",
@@ -9,40 +10,42 @@ const initialState = {
   mobile: "",
 };
 export const Contact = (props) => {
-  const [{ name, email, message, mobile }, setState] = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+
+  console.log("submissionStatus", formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
-  console.log("name: " + name);
-  console.log("email: " + email);
-  console.log("message: " + message);
-  // const clearState = () => setState({ ...initialState });
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const clearState = () => {
-    setState({
-      name: "",
-      email: "",
-      message: "",
-      mobile: "",
-    });
+    setFormData(initialState);
+    setRecaptchaValue(null);
   };
 
   const handleSubmit = (e) => {
-    alert("Your message has been submitted successfully");
     e.preventDefault();
-    console.log(name, email, message, mobile);
 
-    /* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA verification.");
+      return;
+    }
+    // Clear the reCAPTCHA value immediately
+    setRecaptchaValue(null);
+
+    // Reset submission status
+    setSubmissionStatus(null);
+
+    /* emailjs service with our own Service ID, Template ID and Public Key from our EmailJS account */
 
     emailjs
-      // .sendForm(
-      //   "YOUR_SERVICE_ID",
-      //   "YOUR_TEMPLATE_ID",
-      //   e.target,
-      //   "YOUR_PUBLIC_KEY"
-      // )
       .sendForm(
         "service_0zbn8nv",
         "template_dmsvz9p",
@@ -51,14 +54,29 @@ export const Contact = (props) => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          clearState();
+          console.log("result===>>>", result);
+          if (result.status === 200) {
+            // Clear the state after successful email sending
+            setSubmissionStatus("success");
+            alert("Your message has been submitted successfully");
+            setFormData(initialState);
+            setRecaptchaValue(null);
+          }
         },
         (error) => {
           console.log(error.text);
+          setSubmissionStatus("error");
         }
       );
   };
+
+  useEffect(() => {
+    if (submissionStatus === "success") {
+      clearState();
+      // window.location.reload(true);
+    }
+  }, [submissionStatus]);
+
   return (
     <div>
       <div id="contact">
@@ -82,6 +100,7 @@ export const Contact = (props) => {
                         name="mobile"
                         className="form-control"
                         placeholder="Mobile Number"
+                        value={formData.mobile}
                         required
                         onChange={handleChange}
                       />
@@ -96,6 +115,7 @@ export const Contact = (props) => {
                         name="email"
                         className="form-control"
                         placeholder="Email"
+                        value={formData.email}
                         required
                         onChange={handleChange}
                       />
@@ -114,6 +134,7 @@ export const Contact = (props) => {
                       name="name"
                       className="form-control"
                       placeholder="Name/Company Name"
+                      value={formData.name}
                       required
                       onChange={handleChange}
                     />
@@ -128,12 +149,19 @@ export const Contact = (props) => {
                     className="form-control"
                     rows="4"
                     placeholder="Message"
+                    value={formData.message}
                     required
                     onChange={handleChange}
                   ></textarea>
                   <p className="help-block text-danger"></p>
                 </div>
                 <div id="success"></div>
+
+                {/* Add reCAPTCHA component */}
+                <ReCAPTCHA
+                  sitekey="6LdcolQpAAAAADRFOLTPL5kKEcV2BXyJb6UtOqWx" // reCAPTCHA site key
+                  onChange={handleRecaptchaChange}
+                />
                 <button type="submit" className="btn btn-custom btn-lg">
                   Send Message
                 </button>

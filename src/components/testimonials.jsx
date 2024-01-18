@@ -1,22 +1,49 @@
 import React, { useState } from "react";
-import Slice from "../assets/testimonial/slice.jpg";
 // import { BsPlayBtnFill } from "react-icons/bs";
 import { Modal } from "@mui/base";
 import {
   Box,
   CardMedia,
+  Container,
   IconButton,
   // Typography,
   // useMediaQuery,
 } from "@mui/material";
 import video from "../assets/testimonial/slice-video.mov";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
-import { useTheme } from "@emotion/react";
-import { FaPlay, FaPlayCircle } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 
 export const Testimonials = (props) => {
   const [open, setOpen] = useState(false);
   // const [isOpenForReadMore, setIsOpenForReadMore] = useState(false);
+  // const [readMoreModalOpen, setReadMoreModalOpen] = useState(false);
+  const [readMoreModalOpen, setReadMoreModalOpen] = useState({});
+
+  console.log("readMoreModalOpen", readMoreModalOpen);
+
+  // const handleReadMoreOpen = () => {
+  //   console.log("function is called");
+  //   setReadMoreModalOpen(true);
+  // };
+
+  // const handleReadMoreClose = () => {
+  //   setReadMoreModalOpen(false);
+  // };
+
+  const handleReadMoreOpen = (testimonialIndex) => {
+    console.log("function is called");
+    setReadMoreModalOpen((prevState) => ({
+      ...prevState,
+      [testimonialIndex]: true,
+    }));
+  };
+
+  const handleReadMoreClose = (testimonialIndex) => {
+    setReadMoreModalOpen((prevState) => ({
+      ...prevState,
+      [testimonialIndex]: false,
+    }));
+  };
 
   const style = {
     position: "fixed",
@@ -45,28 +72,125 @@ export const Testimonials = (props) => {
   //   setIsOpenForReadMore(false);
   // };
 
-  const ReadMore = ({ children }) => {
-    console.log("children", children);
+  // const ReadMore = ({ children }) => {
+  //   const text = children.props.children[1];
+  //   const [isReadMore, setIsReadMore] = useState(true);
+  //   // const toggleReadMore = () => {
+  //   //   // setIsOpenForReadMore(true);
+  //   //   setIsReadMore(!isReadMore);
+  //   // };
+  //   const toggleOpen = () => setCentredModal(!centredModal);
+  //   return (
+  //     <p className="text">
+  //       {isReadMore ? text.slice(0, 100) : text}
+  //       <span
+  //         onClick={toggleOpen}
+  //         className="read-or-hide"
+  //         style={{ color: "green" }}
+  //       >
+  //         {isReadMore ? "...read more" : " show less"}
+  //       </span>
+  //     </p>
+  //   );
+  // };
+
+  const ReadMore = ({ children, testimonialIndex, data }) => {
     const text = children.props.children[1];
-    console.log("text", text);
-    const [isReadMore, setIsReadMore] = useState(true);
-    const toggleReadMore = () => {
-      // setIsOpenForReadMore(true);
-      setIsReadMore(!isReadMore);
-    };
+    console.log("children", children);
+    console.log("data", data);
+
     return (
-      <p className="text">
-        {isReadMore ? text.slice(0, 100) : text}
+      <p>
+        {text.slice(0, 200)}{" "}
         <span
-          onClick={toggleReadMore}
-          className="read-or-hide"
-          style={{ color: "green" }}
+          style={{ color: "green", cursor: "pointer" }}
+          onClick={() => handleReadMoreOpen(testimonialIndex)}
         >
-          {isReadMore ? "...read more" : " show less"}
+          ...read more
         </span>
+        {readMoreModalOpen[testimonialIndex] && (
+          <Modal
+            open={readMoreModalOpen[testimonialIndex]}
+            onClose={() => handleReadMoreClose(testimonialIndex)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={() => handleReadMoreClose(testimonialIndex)}
+                aria-label="close"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  right: 1,
+                  width: "25px",
+                  height: "15px",
+                  marginRight: "5px",
+                  marginTop: "5px",
+                  color: "red",
+                }}
+              >
+                <HighlightOffSharpIcon />
+              </IconButton>
+
+              <Container maxWidth="sm" sx={{ marginTop: "20px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box
+                    className="testimonial-image"
+                    sx={{
+                      marginBottom: "16px", // Adjust the margin as needed
+                      "& img": {
+                        width: "100%",
+                        border: "1px solid gray",
+                      },
+                    }}
+                  >
+                    <img src={data.img} alt="" />
+                  </Box>
+                  <Box>
+                    <p>{text}</p>
+                    <p
+                      className="testimonial-meta"
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      - {data.name}
+                    </p>
+                  </Box>
+                </Box>
+              </Container>
+
+              {/* <Box sx={{ display: "flex" }}>
+                <Box className="testimonial-image" style={{}}>
+                  <img
+                    src={data.img}
+                    alt=""
+                    style={{
+                      border: "1px solid gray",
+                    }}
+                  />
+                </Box>
+
+                <p>{text}</p>
+              </Box> */}
+            </Box>
+          </Modal>
+        )}
       </p>
     );
   };
+
   return (
     <div id="testimonials">
       <div className="container">
@@ -83,7 +207,6 @@ export const Testimonials = (props) => {
         >
           {props.data
             ? props.data.map((d, i) => {
-                console.log("data: " + d);
                 return (
                   <div key={`${d.name}-${i}`} className="col-md-4">
                     <div className="testimonial">
@@ -93,7 +216,14 @@ export const Testimonials = (props) => {
                         onClick={d.video ? handleOpen : handleClose}
                       >
                         {" "}
-                        <img src={d.img} alt="" />{" "}
+                        <img
+                          src={d.img}
+                          alt=""
+                          style={{
+                            // boxShadow: "10px  rgba(196, 25, 25, 0.5)",
+                            border: "1px solid gray",
+                          }}
+                        />{" "}
                         {d.video && (
                           <div
                             className="play-button"
@@ -103,17 +233,18 @@ export const Testimonials = (props) => {
                               left: "50%",
                               transform: "translate(-50%, -50%)",
                               textAlign: "center",
-                              border: "1px solid #f8b31e ",
+                              // border: "1px solid #090909 ",
                               borderRadius: "50%",
-                              backgroundColor: "#f8b31e",
+                              backgroundColor: "#101010",
                             }}
                             s
                           >
                             <FaPlay
                               style={{
                                 fontSize: "3rem",
-                                color: "#df2838",
-                                padding: "6px",
+                                // color: "#df2838",
+                                color: "#fff",
+                                padding: "10px",
                                 marginLeft: "2px",
                               }}
                             />
@@ -121,9 +252,10 @@ export const Testimonials = (props) => {
                         )}
                       </div>
                       <div className="testimonial-content">
-                        <ReadMore text={d.text} key={`${d.text}-${i}`}>
+                        <ReadMore text={d.text} data={d} testimonialIndex={i}>
                           <p>"{d.text}"</p>
                         </ReadMore>
+
                         <div className="testimonial-meta"> - {d.name} </div>
                       </div>
                       {open && d.video ? (
@@ -134,15 +266,9 @@ export const Testimonials = (props) => {
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                           style={{
-                            // position: "fixed",
-                            // width: "50%",
-                            // height: "50%",
                             top: "25%",
                             margin: "auto",
-                            // width: isSmallScreen ? "90%" : "50%",
-                            // height: isSmallScreen ? "80%" : "auto",
-                            // padding: isSmallScreen ? "20px" : "50px",
-                            // margin: isSmallScreen ? "10px" : "50px",
+
                             backgroundColor: "white",
                             display: "flex",
                             flexDirection: "column",
@@ -182,6 +308,7 @@ export const Testimonials = (props) => {
                       ) : (
                         <></>
                       )}
+
                       {/* {isOpenForReadMore && d.text && (
                         <Modal
                           open={isOpenForReadMore}
