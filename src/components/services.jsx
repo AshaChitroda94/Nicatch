@@ -8,7 +8,7 @@ export const Services = (props) => {
           <h2>Our Services</h2>
           <p>
             We are very pleased and proud to offer our below services to our
-            Clients.
+            clients.
           </p>
         </div>
         <div className="row">

@@ -34,7 +34,8 @@ export const Team = (props) => {
           <h2>Founder Words</h2>
           <p>
             Our visionary founder has a vision that every business must become
-            digital. Here are what our founder says...
+            digital. Click on picture to know vision and golden words of our
+            founder...
           </p>
         </div>
         <div id="row">
