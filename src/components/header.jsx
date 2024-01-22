@@ -1,9 +1,15 @@
 import React from "react";
+import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const Header = (props) => {
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMedScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <header id="header">
-      <div className="intro">
+      <div className="intro" style={{ width: isSmallScreen ? "111%" : "100%" }}>
         <div className="overlay">
           <div className="container">
             <div className="row">

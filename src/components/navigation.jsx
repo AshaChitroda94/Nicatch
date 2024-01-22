@@ -1,10 +1,20 @@
 import React from "react";
 import logo from "../assets/logo/final.png";
 
+import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 export const Navigation = (props) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMedScreen = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
+      <div
+        className="container"
+        style={{ marginLeft: isMedScreen ? "-25px" : "" }}
+      >
         <div className="navbar-header">
           <button
             type="button"
@@ -35,7 +45,10 @@ export const Navigation = (props) => {
           className="collapse navbar-collapse"
           id="bs-example-navbar-collapse-1"
         >
-          <ul className="nav navbar-nav navbar-right">
+          <ul
+            className="nav navbar-nav navbar-right"
+            // style={{ marginLeft: isMedScreen ? "-76px" : "" }}
+          >
             <li>
               <a href="#features" className="page-scroll">
                 Features

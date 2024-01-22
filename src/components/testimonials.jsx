@@ -1,26 +1,66 @@
 import React, { useState } from "react";
-import Slice from "../assets/testimonial/slice.jpg";
-// import { BsPlayBtnFill } from "react-icons/bs";
 import { Modal } from "@mui/base";
-import {
-  Box,
-  CardMedia,
-  IconButton,
-  // Typography,
-  // useMediaQuery,
-} from "@mui/material";
+import { Backdrop, Box, CardMedia, Container, IconButton } from "@mui/material";
 import video from "../assets/testimonial/slice-video.mov";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
-import { useTheme } from "@emotion/react";
-import { FaPlay, FaPlayCircle } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
+
+import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const Testimonials = (props) => {
   const [open, setOpen] = useState(false);
-  // const [isOpenForReadMore, setIsOpenForReadMore] = useState(false);
+
+  const [readMoreModalOpen, setReadMoreModalOpen] = useState({});
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMedScreen = useMediaQuery(theme.breakpoints.up("md"));
+
+  const handleReadMoreOpen = (testimonialIndex) => {
+    console.log(" open function is called");
+    setReadMoreModalOpen((prevState) => ({
+      ...prevState,
+      [testimonialIndex]: true,
+    }));
+  };
+
+  const handleReadMoreClose = (testimonialIndex) => {
+    console.log(" close function is called");
+    setReadMoreModalOpen((prevState) => ({
+      ...prevState,
+      [testimonialIndex]: false,
+    }));
+  };
 
   const style = {
     position: "fixed",
-    top: "50%",
+    // top: "50%",
+    top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "43%",
+    height: isLargeScreen ? "640px" : isMedScreen ? "500px" : "550px",
+    // left: "47%",
+    left: "48%",
+    transform: "translate(-50%, -50%)",
+    // width: 800,
+    bgcolor: "background.paper",
+    border: "2px solid #0ec7c1",
+    boxShadow: 24,
+    p: 4,
+    marginTop: "70px",
+    width: isSmallScreen ? "300px" : "auto",
+    marginBottom: isSmallScreen ? "" : "70px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backdropFilter: "blur(10px)",
+    // backdropFilter: open ? "blur(10px)" : "none", // Apply blur when the modal is open
+    // transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
+  };
+
+  const ReadMoreStyle = {
+    position: "fixed",
+    // top: "50%",
+    top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "45%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     // width: 800,
@@ -29,10 +69,15 @@ export const Testimonials = (props) => {
     boxShadow: 24,
     p: 4,
     marginTop: "70px",
+    width: isSmallScreen ? "350px" : "auto",
+    // marginBottom: isSmallScreen ? "100px" : "70px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backdropFilter: "blur(10px)",
+    // backdropFilter: open ? "blur(10px)" : "none", // Apply blur when the modal is open
+    // transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
   };
-
-  // const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleOpen = () => {
     setOpen(true);
@@ -41,59 +86,162 @@ export const Testimonials = (props) => {
     setOpen(false);
   };
 
-  // const handleIsMoreClose = () => {
-  //   setIsOpenForReadMore(false);
-  // };
-
-  const ReadMore = ({ children }) => {
-    console.log("children", children);
+  const ReadMore = ({ children, testimonialIndex, data }) => {
     const text = children.props.children[1];
-    console.log("text", text);
-    const [isReadMore, setIsReadMore] = useState(true);
-    const toggleReadMore = () => {
-      // setIsOpenForReadMore(true);
-      setIsReadMore(!isReadMore);
+    console.log("children", children);
+    console.log("data", data);
+
+    const handleClick = () => {
+      handleReadMoreOpen(testimonialIndex);
     };
+
     return (
-      <p className="text">
-        {isReadMore ? text.slice(0, 100) : text}
-        <span
-          onClick={toggleReadMore}
-          className="read-or-hide"
-          style={{ color: "green" }}
-        >
-          {isReadMore ? "...read more" : " show less"}
-        </span>
+      <p
+        style={{
+          cursor: "pointer",
+          marginTop: isSmallScreen ? "2rem" : null,
+        }}
+        onClick={handleClick}
+      >
+        {text.slice(0, 200)}{" "}
+        <span style={{ color: "green" }}>...read more</span>
+        {readMoreModalOpen[testimonialIndex] && (
+          <Modal
+            open={readMoreModalOpen[testimonialIndex]}
+            onClose={() => handleReadMoreClose(testimonialIndex)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            closeAfterTransition // Enable smooth transition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500, // Adjust the timeout as needed
+              style: { backgroundColor: "rgba(0, 0, 0, 1)" }, // Darken the background
+            }}
+            // style={{ overflowY: isSmallScreen ? "scroll" : "auto" }}
+          >
+            <Box sx={ReadMoreStyle}>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={(e) => {
+                  e.stopPropagation(); // Stop event propagation
+                  handleReadMoreClose(testimonialIndex);
+                }}
+                aria-label="close"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  right: 1,
+                  width: "4vw", // Adjust as needed
+                  height: "2.5vh", // Adjust as needed
+                  // marginRight: "0.5rem",
+                  marginTop: "1rem",
+                  color: "red",
+                }}
+                style={{
+                  marginRight: isSmallScreen ? "0.5rem" : undefined,
+                }}
+              >
+                <HighlightOffSharpIcon
+                  sx={{
+                    fontSize: "2rem", // Adjust as needed
+                  }}
+                />
+              </IconButton>
+
+              <Container maxWidth="sm" sx={{ marginTop: "20px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box
+                    className="testimonial-image"
+                    sx={{
+                      marginBottom: "16px", // Adjust the margin as needed
+                      "& img": {
+                        width: "100%",
+                        border: "1px solid gray",
+                      },
+                    }}
+                  >
+                    <img src={data.img} alt="" />
+                  </Box>
+                  <Box>
+                    <p>{text}</p>
+                    <p
+                      className="testimonial-meta"
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      - {data.name}
+                    </p>
+                  </Box>
+                </Box>
+              </Container>
+            </Box>
+          </Modal>
+        )}
       </p>
     );
   };
+
+  const ModalStyle = {
+    backdropFilter: open ? "blur(5px)" : "none", // Apply blur when the modal is open
+    transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
+  };
+
   return (
     <div id="testimonials">
-      <div className="container">
+      <Container className="container">
         <div className="section-title text-center">
           <h2>What our clients say</h2>
         </div>
-        <div
+        <Box
           className="row"
-          style={{
-            display: "flex",
-            // alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          display="flex"
+          justifyContent="space-between"
+          // flexWrap="wrap"
+          flexWrap={isSmallScreen ? "wrap" : "nowrap"}
         >
           {props.data
             ? props.data.map((d, i) => {
-                console.log("data: " + d);
                 return (
-                  <div key={`${d.name}-${i}`} className="col-md-4">
-                    <div className="testimonial">
+                  <Box key={`${d.name}-${i}`} className="col-md-4">
+                    <Box
+                      className="testimonial"
+                      // marginBottom={isSmallScreen ? "10px" : ""}
+                      display={isSmallScreen ? "flex" : ""}
+                      flexDirection={isSmallScreen ? "column" : ""}
+                      alignItems={isSmallScreen ? "center" : ""}
+                      marginBottom={isSmallScreen ? "3rem" : ""}
+                    >
                       <div
                         className="testimonial-image"
                         style={{ position: "relative", cursor: "pointer" }}
                         onClick={d.video ? handleOpen : handleClose}
                       >
                         {" "}
-                        <img src={d.img} alt="" />{" "}
+                        <img
+                          src={d.img}
+                          alt=""
+                          style={{
+                            paddingTop:
+                              d.img === "img/testimonials/avatar.jpeg"
+                                ? "10px"
+                                : "0",
+                            // transform:
+                            //   d.img === "img/testimonials/avatar.jpeg"
+                            //     ? "scale(0.8)"
+                            //     : "none",
+                            border: "1px solid gray",
+                          }}
+                        />{" "}
                         {d.video && (
                           <div
                             className="play-button"
@@ -103,17 +251,16 @@ export const Testimonials = (props) => {
                               left: "50%",
                               transform: "translate(-50%, -50%)",
                               textAlign: "center",
-                              border: "1px solid #f8b31e ",
                               borderRadius: "50%",
-                              backgroundColor: "#f8b31e",
+                              backgroundColor: "#101010",
                             }}
                             s
                           >
                             <FaPlay
                               style={{
                                 fontSize: "3rem",
-                                color: "#df2838",
-                                padding: "6px",
+                                color: "#fff",
+                                padding: "10px",
                                 marginLeft: "2px",
                               }}
                             />
@@ -121,10 +268,17 @@ export const Testimonials = (props) => {
                         )}
                       </div>
                       <div className="testimonial-content">
-                        <ReadMore text={d.text} key={`${d.text}-${i}`}>
+                        <ReadMore text={d.text} data={d} testimonialIndex={i}>
                           <p>"{d.text}"</p>
                         </ReadMore>
-                        <div className="testimonial-meta"> - {d.name} </div>
+
+                        <div
+                          className="testimonial-meta"
+                          style={{ display: "flex", justifyContent: "end" }}
+                        >
+                          {" "}
+                          - {d.name}{" "}
+                        </div>
                       </div>
                       {open && d.video ? (
                         <Modal
@@ -133,20 +287,16 @@ export const Testimonials = (props) => {
                           onClose={handleClose}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
+                          BackdropComponent={Backdrop} // Use Backdrop component
+                          // BackdropProps={{
+                          //   onClick: handleClose,  // Handle click outside the modal
+                          //   timeout: 500,
+                          //   style: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+                          // }}
                           style={{
-                            // position: "fixed",
-                            // width: "50%",
-                            // height: "50%",
                             top: "25%",
                             margin: "auto",
-                            // width: isSmallScreen ? "90%" : "50%",
-                            // height: isSmallScreen ? "80%" : "auto",
-                            // padding: isSmallScreen ? "20px" : "50px",
-                            // margin: isSmallScreen ? "10px" : "50px",
                             backgroundColor: "white",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
                           }}
                         >
                           <Box sx={style}>
@@ -174,7 +324,24 @@ export const Testimonials = (props) => {
                                 // src={d.video}
                                 src={video}
                                 autoPlay
-                                height="600"
+                                // maxHeight: isSmallScreen ? "40px" : "",
+
+                                // height="600"
+                                style={{
+                                  // maxHeight: isSmallScreen ? "900" : "600",
+                                  height: isLargeScreen
+                                    ? "580px"
+                                    : isMedScreen
+                                    ? "440px"
+                                    : "460px",
+                                  paddingBottom: isLargeScreen
+                                    ? "0px"
+                                    : isMedScreen
+                                    ? "10px"
+                                    : "1px",
+
+                                  overlay: "auto",
+                                }}
                               />
                             </Box>
                           </Box>
@@ -182,63 +349,13 @@ export const Testimonials = (props) => {
                       ) : (
                         <></>
                       )}
-                      {/* {isOpenForReadMore && d.text && (
-                        <Modal
-                          open={isOpenForReadMore}
-                          onClose={handleIsMoreClose}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                        >
-                          <Box sx={style}>
-                            <IconButton
-                              edge="end"
-                              color="inherit"
-                              onClick={handleIsMoreClose}
-                              aria-label="close"
-                              sx={{
-                                position: "absolute",
-                                top: 0,
-                                right: 1,
-                                width: "25px",
-                                height: " 15px",
-                                marginRight: "5px",
-                                marginTop: "5px",
-                                color: "red",
-                              }}
-                            >
-                              <HighlightOffSharpIcon />
-                            </IconButton>
-                            <Box sx={{ display: "flex" }}>
-                              <img src={d.img} alt="..." className="team-img" />
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    mt: 2,
-                                    ml: 2,
-                                    fontSize: "15px",
-                                    color: "black",
-                                  }}
-                                >
-                                  {d.text}
-                                </Typography>
-                              </Box>
-                            </Box>
-                            <Typography
-                              id="modal-modal-description"
-                              sx={{ mt: 2 }}
-                            >
-                              {d.name}
-                            </Typography>
-                          </Box>
-                        </Modal>
-                      )} */}
-                    </div>
-                  </div>
+                    </Box>
+                  </Box>
                 );
               })
             : "loading"}
-        </div>
-      </div>
+        </Box>
+      </Container>
     </div>
   );
 };

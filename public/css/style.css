@@ -166,10 +166,10 @@ hr {
 .btn-custom {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
-  /* color: #fff; */
-  color: #f8b31e;
-  /* background-color: #01073b; */
-  background-color: #df2838;
+  color: #fff;
+  /* color: #f8b31e; */
+  background-color: #111;
+  /* background-color: #df2838; */
   /* background-image: linear-gradient(to right, #01073b 0%, #6372ff 100%); */
   /* background-image: linear-gradient(to right, #01073b 0%, #6372ff 100%); */
   padding: 14px 34px;
@@ -186,10 +186,10 @@ hr {
 .btn-custom.focus,
 .btn-custom:active,
 .btn-custom.active {
-  color: #df2838;
+  color: #fff;
   background-image: none;
   /* background-color: #6372ff; */
-  background-color: #f8b31e;
+  background-color: #df2838;
 }
 .btn:active,
 .btn.active {
@@ -292,7 +292,7 @@ header .intro-text {
   height: 4px;
   width: 60px;
   bottom: 0;
-  left: 0;
+  left: 35%;
 }
 #about .about-text li {
   margin-bottom: 6px;
