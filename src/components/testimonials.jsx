@@ -14,6 +14,8 @@ export const Testimonials = (props) => {
   const [readMoreModalOpen, setReadMoreModalOpen] = useState({});
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMedScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   const handleReadMoreOpen = (testimonialIndex) => {
     console.log(" open function is called");
@@ -33,7 +35,32 @@ export const Testimonials = (props) => {
 
   const style = {
     position: "fixed",
-    top: "50%",
+    // top: "50%",
+    top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "43%",
+    height: isLargeScreen ? "640px" : isMedScreen ? "500px" : "550px",
+    // left: "47%",
+    left: "48%",
+    transform: "translate(-50%, -50%)",
+    // width: 800,
+    bgcolor: "background.paper",
+    border: "2px solid #0ec7c1",
+    boxShadow: 24,
+    p: 4,
+    marginTop: "70px",
+    width: isSmallScreen ? "300px" : "auto",
+    marginBottom: isSmallScreen ? "" : "70px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backdropFilter: "blur(10px)",
+    // backdropFilter: open ? "blur(10px)" : "none", // Apply blur when the modal is open
+    // transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
+  };
+
+  const ReadMoreStyle = {
+    position: "fixed",
+    // top: "50%",
+    top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "45%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     // width: 800,
@@ -42,6 +69,12 @@ export const Testimonials = (props) => {
     boxShadow: 24,
     p: 4,
     marginTop: "70px",
+    width: isSmallScreen ? "350px" : "auto",
+    // marginBottom: isSmallScreen ? "100px" : "70px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backdropFilter: "blur(10px)",
     // backdropFilter: open ? "blur(10px)" : "none", // Apply blur when the modal is open
     // transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
   };
@@ -84,8 +117,9 @@ export const Testimonials = (props) => {
               timeout: 500, // Adjust the timeout as needed
               style: { backgroundColor: "rgba(0, 0, 0, 1)" }, // Darken the background
             }}
+            // style={{ overflowY: isSmallScreen ? "scroll" : "auto" }}
           >
-            <Box sx={style}>
+            <Box sx={ReadMoreStyle}>
               <IconButton
                 edge="end"
                 color="inherit"
@@ -253,14 +287,16 @@ export const Testimonials = (props) => {
                           onClose={handleClose}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
+                          BackdropComponent={Backdrop} // Use Backdrop component
+                          // BackdropProps={{
+                          //   onClick: handleClose,  // Handle click outside the modal
+                          //   timeout: 500,
+                          //   style: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+                          // }}
                           style={{
                             top: "25%",
                             margin: "auto",
                             backgroundColor: "white",
-                            // maxHeight: isSmallScreen ? "40px" : "",
-                            // display: "flex",
-                            // flexDirection: "column",
-                            // alignItems: "center",
                           }}
                         >
                           <Box sx={style}>
@@ -292,7 +328,18 @@ export const Testimonials = (props) => {
 
                                 // height="600"
                                 style={{
-                                  maxHeight: isSmallScreen ? "900" : "600",
+                                  // maxHeight: isSmallScreen ? "900" : "600",
+                                  height: isLargeScreen
+                                    ? "580px"
+                                    : isMedScreen
+                                    ? "440px"
+                                    : "460px",
+                                  paddingBottom: isLargeScreen
+                                    ? "0px"
+                                    : isMedScreen
+                                    ? "10px"
+                                    : "1px",
+
                                   overlay: "auto",
                                 }}
                               />
