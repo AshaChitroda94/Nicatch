@@ -63,20 +63,16 @@ export const Testimonials = (props) => {
     top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "45%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    // width: 800,
     bgcolor: "background.paper",
-    border: "2px solid #0ec7c1",
+    borderRadius: "4px",
     boxShadow: 24,
     p: 4,
     marginTop: "70px",
     width: isSmallScreen ? "350px" : "auto",
-    // marginBottom: isSmallScreen ? "100px" : "70px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backdropFilter: "blur(10px)",
-    // backdropFilter: open ? "blur(10px)" : "none", // Apply blur when the modal is open
-    // transition: "backdrop-filter 0.5s ease", // Add a transition for a smooth effect
   };
 
   const handleOpen = () => {
@@ -106,86 +102,96 @@ export const Testimonials = (props) => {
         {text.slice(0, 200)}{" "}
         <span style={{ color: "green" }}>...read more</span>
         {readMoreModalOpen[testimonialIndex] && (
-          <Modal
-            open={readMoreModalOpen[testimonialIndex]}
-            onClose={() => handleReadMoreClose(testimonialIndex)}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-            closeAfterTransition // Enable smooth transition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-              timeout: 500, // Adjust the timeout as needed
-              style: { backgroundColor: "rgba(0, 0, 0, 1)" }, // Darken the background
+          <Box
+            className="modal-backdrop"
+            onClick={(e) => {
+              // close modal when outside of modal is clicked
+              e.stopPropagation();
+              handleReadMoreClose(testimonialIndex);
             }}
-            // style={{ overflowY: isSmallScreen ? "scroll" : "auto" }}
           >
-            <Box sx={ReadMoreStyle}>
-              <IconButton
-                edge="end"
-                color="inherit"
-                onClick={(e) => {
-                  e.stopPropagation(); // Stop event propagation
-                  handleReadMoreClose(testimonialIndex);
-                }}
-                aria-label="close"
-                sx={{
-                  position: "absolute",
-                  top: 0,
-                  right: 1,
-                  width: "4vw", // Adjust as needed
-                  height: "2.5vh", // Adjust as needed
-                  // marginRight: "0.5rem",
-                  marginTop: "1rem",
-                  color: "red",
-                }}
-                style={{
-                  marginRight: isSmallScreen ? "0.5rem" : undefined,
-                }}
-              >
-                <HighlightOffSharpIcon
-                  sx={{
-                    fontSize: "2rem", // Adjust as needed
+            <Modal
+              open={readMoreModalOpen[testimonialIndex]}
+              onClose={() => handleReadMoreClose(testimonialIndex)}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              closeAfterTransition // Enable smooth transition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500, // Adjust the timeout as needed
+                style: { backgroundColor: "rgba(0, 0, 0, 1)" }, // Darken the background
+              }}
+              // style={{ overflowY: isSmallScreen ? "scroll" : "auto" }}
+            >
+              <Box sx={ReadMoreStyle}>
+                <IconButton
+                  edge="end"
+                  color="inherit"
+                  onClick={(e) => {
+                    e.stopPropagation(); // Stop event propagation
+                    handleReadMoreClose(testimonialIndex);
                   }}
-                />
-              </IconButton>
-
-              <Container maxWidth="sm" sx={{ marginTop: "20px" }}>
-                <Box
+                  aria-label="close"
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    position: "absolute",
+                    top: 0,
+                    right: 5,
+                    width: "4vw", // Adjust as needed
+                    height: "2.5vh", // Adjust as needed
+                    // marginRight: "0.5rem",
+                    marginTop: "1rem",
+                    // marginLeft: "10px",
+                    color: "red",
+                  }}
+                  style={{
+                    marginRight: isSmallScreen ? "0.5rem" : undefined,
                   }}
                 >
-                  <Box
-                    className="testimonial-image"
+                  <HighlightOffSharpIcon
                     sx={{
-                      marginBottom: "16px", // Adjust the margin as needed
-                      "& img": {
-                        width: "100%",
-                        border: "1px solid gray",
-                      },
+                      fontSize: "2rem", // Adjust as needed
+                    }}
+                  />
+                </IconButton>
+
+                <Container maxWidth="sm" sx={{ marginTop: "20px" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
                     }}
                   >
-                    <img src={data.img} alt="" />
-                  </Box>
-                  <Box>
-                    <p>{text}</p>
-                    <p
-                      className="testimonial-meta"
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        justifyContent: "flex-end",
+                    <Box
+                      className="testimonial-image"
+                      sx={{
+                        marginBottom: "16px", // Adjust the margin as needed
+                        "& img": {
+                          width: "100%",
+                          border: "1px solid gray",
+                        },
                       }}
                     >
-                      - {data.name}
-                    </p>
+                      <img src={data.img} alt="CEO_Profile" />
+                    </Box>
+                    <Box>
+                      <p>{text}</p>
+                      <p
+                        className="testimonial-meta"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          justifyContent: "flex-end",
+                        }}
+                      >
+                        - {data.name}
+                      </p>
+                    </Box>
                   </Box>
-                </Box>
-              </Container>
-            </Box>
-          </Modal>
+                </Container>
+              </Box>
+            </Modal>
+          </Box>
         )}
       </p>
     );
@@ -281,71 +287,80 @@ export const Testimonials = (props) => {
                         </div>
                       </div>
                       {open && d.video ? (
-                        <Modal
-                          keepMounted
-                          open={open}
-                          onClose={handleClose}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                          BackdropComponent={Backdrop} // Use Backdrop component
-                          // BackdropProps={{
-                          //   onClick: handleClose,  // Handle click outside the modal
-                          //   timeout: 500,
-                          //   style: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
-                          // }}
-                          style={{
-                            top: "25%",
-                            margin: "auto",
-                            backgroundColor: "white",
+                        <Box
+                          className="modal-backdrop"
+                          onClick={() => {
+                            // close modal when outside of modal is clicked
+                            handleClose();
                           }}
                         >
-                          <Box sx={style}>
-                            <IconButton
-                              edge="end"
-                              color="inherit"
-                              onClick={handleClose}
-                              aria-label="close"
-                              sx={{
-                                position: "fixed",
-                                top: 0,
-                                right: 1,
-                                width: "30px",
-                                height: " 25px",
-                                marginRight: "5px",
-                                marginTop: "5px",
-                                color: "red",
-                              }}
-                            >
-                              <HighlightOffSharpIcon />
-                            </IconButton>
-                            <Box sx={{ display: "flex" }}>
-                              <CardMedia
-                                component="video"
-                                // src={d.video}
-                                src={video}
-                                autoPlay
-                                // maxHeight: isSmallScreen ? "40px" : "",
-
-                                // height="600"
-                                style={{
-                                  // maxHeight: isSmallScreen ? "900" : "600",
-                                  height: isLargeScreen
-                                    ? "580px"
-                                    : isMedScreen
-                                    ? "440px"
-                                    : "460px",
-                                  paddingBottom: isLargeScreen
-                                    ? "0px"
-                                    : isMedScreen
-                                    ? "10px"
-                                    : "1px",
-
-                                  overlay: "auto",
+                          <Modal
+                            keepMounted
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            BackdropComponent={Backdrop} // Use Backdrop component
+                            BackdropProps={{
+                              onClick: { handleClose }, // Handle click outside the modal
+                              timeout: 500,
+                              // style: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+                            }}
+                            className="modal-content"
+                            // sx={{
+                            //   top: "25%",
+                            //   margin: "auto",
+                            //   backgroundColor: "white",
+                            // }}
+                          >
+                            <Box sx={style}>
+                              <IconButton
+                                edge="end"
+                                color="inherit"
+                                onClick={handleClose}
+                                aria-label="close"
+                                sx={{
+                                  position: "fixed",
+                                  top: 0,
+                                  right: 1,
+                                  width: "30px",
+                                  height: " 25px",
+                                  marginRight: "5px",
+                                  marginTop: "5px",
+                                  color: "red",
                                 }}
-                              />
+                              >
+                                <HighlightOffSharpIcon />
+                              </IconButton>
+                              <Box sx={{ display: "flex" }}>
+                                <CardMedia
+                                  component="video"
+                                  // src={d.video}
+                                  src={video}
+                                  autoPlay
+                                  // maxHeight: isSmallScreen ? "40px" : "",
+
+                                  // height="600"
+                                  style={{
+                                    // maxHeight: isSmallScreen ? "900" : "600",
+                                    height: isLargeScreen
+                                      ? "580px"
+                                      : isMedScreen
+                                      ? "440px"
+                                      : "460px",
+                                    paddingBottom: isLargeScreen
+                                      ? "0px"
+                                      : isMedScreen
+                                      ? "10px"
+                                      : "1px",
+
+                                    overlay: "auto",
+                                  }}
+                                />
+                              </Box>
                             </Box>
-                          </Box>
-                        </Modal>
+                          </Modal>
+                        </Box>
                       ) : (
                         <></>
                       )}

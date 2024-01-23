@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/system";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
+import { Helmet } from "react-helmet";
 import React from "react";
 
 export const About = (props) => {
@@ -11,6 +11,15 @@ export const About = (props) => {
 
   return (
     <div id="about">
+      <Helmet>
+        <meta
+          name="about"
+          content="We are giving best IT services and quality solutions"
+          // charSet="utf-8"
+        />
+        <title>About-Nicatch</title>
+        <link rel="canonical" href="http://nicatch.com/about" />
+      </Helmet>
       <div className="container">
         <div className="row">
           <div
