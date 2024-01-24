@@ -29,10 +29,13 @@ const App = () => {
       <Helmet>
         <meta
           name="Website"
-          content="We make Digitalize your Ideas"
+          content="We provide Website development, Application development, and Quality Assurance services. We are thinking about your product and suggest ideas and technologies which is currently trending. We are providing solutions for Mobile Technology and Web Technology."
           // charSet="utf-8"
         />
-        <title>Nicatch</title>
+        <title>
+          Nicatch | Website and App development company | software design and
+          development
+        </title>
         <link rel="canonical" href="http://nicatch.com" />
       </Helmet>
       <div>

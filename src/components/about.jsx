@@ -11,7 +11,7 @@ export const About = (props) => {
 
   return (
     <div id="about">
-      <Helmet>
+      {/* <Helmet>
         <meta
           name="about"
           content="We are giving best IT services and quality solutions"
@@ -19,7 +19,7 @@ export const About = (props) => {
         />
         <title>About-Nicatch</title>
         <link rel="canonical" href="http://nicatch.com/about" />
-      </Helmet>
+      </Helmet> */}
       <div className="container">
         <div className="row">
           <div

@@ -14,8 +14,6 @@ export const Contact = (props) => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState(null);
 
-  console.log("submissionStatus", formData);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
