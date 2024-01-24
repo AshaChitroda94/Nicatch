@@ -51,19 +51,19 @@
       "title": "Manaaki",
       "largeImage": "img/portfolio/04-large.jpg",
       "smallImage": "img/Gallary/manaakiapp.jpg",
-      "link": "#"
+      "link": "https://play.google.com/store/apps/details?id=com.mightybell.manaaki&hl=en&gl=US"
     },
     {
       "title": "DRB",
       "largeImage": "img/portfolio/05-large.jpg",
       "smallImage": "img/Gallary/DRB-app.jpg",
-      "link": "#"
+      "link": "https://www.drb.co.nz/"
     },
     {
       "title": "Agordia",
       "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/Gallary/Agordia3.jpg",
-      "link": "#"
+      "smallImage": "img/Gallary/agodia-web.jpeg",
+      "link": "http://agordia.in/"
     }
   ],
   "Services": [
@@ -124,7 +124,7 @@
     "email": "info@nicatch.com",
     "facebook": "fb.com",
     "twitter": "twitter.com",
-    "linkedin": "linkedin.com"
+    "linkedin": "https://www.linkedin.com/in/parmarnikhil07/"
   },
   "Features": [
     {

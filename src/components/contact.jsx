@@ -200,18 +200,33 @@ export const Contact = (props) => {
               <div className="social">
                 <ul>
                   <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
+                    <a
+                      href={props.data ? props.data.facebook : "/"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
+                    <a
+                      href={props.data ? props.data.twitter : "/"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.linkedin : "/"}>
-                      <i className="fa fa-linkedin"></i>
+                    <a
+                      href={props.data ? props.data.linkedin : "/"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i
+                        className="fa fa-linkedin"
+                        style={{ padding: "10px" }}
+                      ></i>
                     </a>
                   </li>
                 </ul>
@@ -223,7 +238,8 @@ export const Contact = (props) => {
       <div id="footer">
         <div className="container text-center">
           <p>
-            &copy; 2024 Nicatch Private Limited.
+            &copy; 2024 Website Developers and Designers in Vadodara, All Rights
+            Reserved
             {/* <a href="http://www.templatewire.com" rel="nofollow">
               TemplateWire
             </a> */}

@@ -15,8 +15,8 @@ export const Header = (props) => {
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1>
-                  {props.data ? props.data.title : "Loading"}
-                  <span></span>
+                  {/* {props.data ? props.data.title : "Loading"} */}
+                  Have an idea? Let's make it Digital
                 </h1>
                 <p>{props.data ? props.data.paragraph : "Loading"}</p>
                 <a

@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import Image from "../assets/team/CEO.jpg";
 import { Modal } from "@mui/base";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Container, IconButton, Typography } from "@mui/material";
 // import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
+import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const Team = (props) => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMedScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   const style = {
     position: "fixed",
-    top: "50%",
+    top: isLargeScreen ? "46%" : isMedScreen ? "50%" : "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 800,
     bgcolor: "background.paper",
-    border: "1px solid #0ec7c1",
+    borderRadius: "4px",
     boxShadow: 24,
     p: 4,
+    marginTop: isSmallScreen ? "20px" : "70px",
+    width: isSmallScreen ? "90%" : "60%",
+    backdropFilter: "blur(10px)",
   };
 
   const handleOpen = () => {
@@ -48,7 +56,7 @@ export const Team = (props) => {
                     <div className="caption">
                       <h4>{d.name}</h4>
                       <p>{d.job}</p>
-                    </div>
+                    </div>  
                   </div>
                 </div>
               ))
@@ -75,36 +83,77 @@ export const Team = (props) => {
         </div>
       </div>
       {open && (
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+        <Box
+          className="modal-backdrop"
+          onClick={() => {
+            // close modal when outside of modal is clicked
+            handleClose();
+          }}
         >
-          <Box sx={style}>
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-              sx={{
-                position: "absolute",
-                top: 0,
-                right: 1,
-                width: "25px",
-                height: " 15px",
-                marginRight: "5px",
-                marginTop: "5px",
-                color: "red",
-              }}
-            >
-              {/* <CloseIcon /> */}
-              <HighlightOffSharpIcon />
-            </IconButton>
-            <Box sx={{ display: "flex" }}>
-              <img src={Image} alt="..." className="team-img" />
-              <Box>
-                {/* <Typography
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            sx={{ width: isSmallScreen ? "90%" : "60%" }}
+          >
+            <Box sx={style}>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={handleClose}
+                aria-label="close"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  right: 1,
+                  width: "25px",
+                  height: " 15px",
+                  marginRight: "5px",
+                  marginTop: "5px",
+                  color: "red",
+                }}
+              >
+                <HighlightOffSharpIcon />
+              </IconButton>
+              {/* <Container maxWidth="sm" sx={{ marginTop: "20px" }}> */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: isSmallScreen ? "column" : "row",
+                  alignItems: "center",
+                }}
+              >
+                <img
+                  src={Image}
+                  alt="..."
+                  className="team-img"
+                  style={{
+                    width: isSmallScreen ? "70%" : "100%",
+                    height: "auto",
+                    display: "flex",
+                    alignItems: isSmallScreen ? "center" : "",
+                    justifyContent: isSmallScreen ? "center" : "",
+                    borderRadius: isSmallScreen ? "50%" : "",
+                  }}
+                />
+                <Box>
+                  {isSmallScreen && (
+                    <Typography
+                      id="modal-modal-description"
+                      sx={{
+                        mt: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "11px",
+                        color: "black",
+                      }}
+                    >
+                      Founder & CEO
+                    </Typography>
+                  )}
+                  {/* <Typography
                   sx={{ mt: 2, ml: 2, fontSize: "15px", color: "black" }}
                 >
                   Coming from a small town with a vision of to achieve something
@@ -112,26 +161,49 @@ export const Team = (props) => {
                   possible with hard and smart Work. As an entrepreneur I show a dream that to
                   provide employee good environment to work and achieve their goals of life.
                 </Typography> */}
-                <Typography
-                  sx={{ mt: 2, ml: 2, fontSize: "15px", color: "black" }}
-                >
-                  We provide a range of technical development and strategic
-                  consulting services to build agility, integrate data assets
-                  and transform technical assets of your key business processes.
-                  Our aim is to help our clients gain a competitive advantage
-                  with new or enhanced software products. Our range of services
-                  includes custom software solutions, web applications, desktop
-                  software, line of business applications, third-party
-                  integrations, content management systems, and mainframe
-                  applications.
-                </Typography>
+                  <Typography
+                    // sx={{ mt: 2, ml: 2, fontSize: "15px", color: "black" }}
+                    sx={{
+                      mt: isSmallScreen ? 1 : 2,
+                      ml: 2,
+                      fontSize: isSmallScreen ? "12px" : "15px",
+                      color: "black",
+                    }}
+                  >
+                    We provide a range of technical development and strategic
+                    consulting services to build agility, integrate data assets
+                    and transform technical assets of your key business
+                    processes. Our aim is to help our clients gain a competitive
+                    advantage with new or enhanced software products. Our range
+                    of services includes custom software solutions, web
+                    applications, desktop software, line of business
+                    applications, third-party integrations, content management
+                    systems, and mainframe applications.
+                  </Typography>
+                </Box>
               </Box>
+              {/* </Container> */}
+              {isSmallScreen ? (
+                <></>
+              ) : (
+                <>
+                  <Typography
+                    id="modal-modal-description"
+                    sx={{
+                      mt: 2,
+                      ml: 15,
+                      // fontWeight: "bold",
+                      fontSize: "11px",
+                      color: "black",
+                    }}
+                  >
+                    Founder & CEO
+                  </Typography>
+                </>
+              )}
             </Box>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Founder & CEO
-            </Typography>
-          </Box>
-        </Modal>
+          </Modal>
+        </Box>
       )}
     </div>
   );
