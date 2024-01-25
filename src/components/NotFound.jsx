@@ -26,9 +26,24 @@ const NotFound = () => {
           alt="Not Found"
           style={{ width: "600px", height: "500px" }}
         />
-        <p>Sorry, We can't find the page.</p>
+        <h3
+          style={{
+            fontSize: "bold",
+            textTransform: "uppercase",
+            fontWeight: 800,
+            letterSpacing: "1px",
+            margin: "20px",
+          }}
+        >
+          Sorry, the page can't be found.
+        </h3>
         <Link to="/">
-          <Button>Go Home</Button>
+          <Button
+            className="btn btn-custom btn-lg"
+            style={{ paddingTop: "16px" }}
+          >
+            Back to Home
+          </Button>
         </Link>
       </Box>
     </Container>
